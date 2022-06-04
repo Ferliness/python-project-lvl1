@@ -1,6 +1,8 @@
 name: Python CI
 
-on: [push]
+on: 
+  - push
+  - pull-request
 
 jobs:
   lint:
@@ -8,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9"]
+        python-version: [3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -22,4 +24,5 @@ jobs:
           pip install poetry
           make install
       - name: Run linter
-        run: make lint
+        run: |
+          make lint
