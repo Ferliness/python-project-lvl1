@@ -7,3 +7,5 @@
 [![Python CI](https://github.com/Ferliness/python-project-lvl1/actions/workflows/pyci.yml/badge.svg)](https://github.com/Ferliness/python-project-lvl1/actions/workflows/pyci.yml)
 
 [![asciicast](https://asciinema.org/a/502729.svg)](https://asciinema.org/a/502729)
+
+[![asciicast](https://asciinema.org/a/3sTm7qxUGKJEueDdZS4NDUkz7.svg)](https://asciinema.org/a/3sTm7qxUGKJEueDdZS4NDUkz7)

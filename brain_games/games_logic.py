@@ -1,35 +1,68 @@
-"""Module contains the main logic of games."""
+"""Module contains functions with the main logic of games."""
+
+import prompt
 
 
-from brain_games import pu_service as pu_s
-from brain_games import se_service as se_s
-
-GAMES_COUNT = 3
-
-
-def start_brain_even():
-    """Start the game brain-even."""
-    player_name = se_s.get_player_name()
-    se_s.greet_player(player_name)
-    print('Answer "yes" if the number is even, otherwise answer "no".')
-    answer_dict = {True: 'yes', False: 'no'}
-
-    for num in tuple(se_s.generate_number() for _ in range(GAMES_COUNT)):
-        print('Question:', num)
-        correct_answer = answer_dict[pu_s.is_even(num)]
-
-        is_player_wins = se_s.compare_answers(
-            correct_answer,
-            se_s.get_player_answer(),
-        )
-
-        if is_player_wins:
-            continue
-
-        break
-
-    se_s.print_end_phrases(is_player_wins, player_name)
+def print_start_phrase():
+    """Greet the player with a common phrase."""
+    print('Welcome to the Brain Games!')
 
 
-if __name__ == '__main__':
-    start_brain_even()
+def meet_and_greet_player():
+    """Ask and get the player's name and print the greeting.
+
+    Returns:
+        string: the player's name
+    """
+    player_name = prompt.string(prompt='May I have your name? ')
+    print('Hello,', player_name)
+    return player_name
+
+
+def get_player_answer():
+    """Asks the player for an answer and returns it.
+
+    Returns:
+        string: thr player's answer
+    """
+    return prompt.string(prompt='Your answer: ')
+
+
+def compare_answers(correct_answer, player_answer):
+    """Compare the player's answer with the correct one.
+
+    Print the comparison result and then return it.
+
+    Args:
+        correct_answer (string): the correct answer to the question
+        player_answer (string): the player answer to the question
+
+    Returns:
+        bool: if the player right return True, else False
+    """
+    if player_answer == correct_answer:
+        print('Correct!')
+        return True
+
+    print(
+        "'",
+        player_answer,
+        "' is wrong answer ;(. Correct answer was '",
+        correct_answer,
+        "'",
+        sep='',
+    )
+    return False
+
+
+def print_end_phrase(is_player_wins, player_name):
+    """Print the appropriate finish phrase.
+
+    Args:
+        is_player_wins (bool): is the player a winner or a loser
+        player_name (string): the player's name
+    """
+    if is_player_wins:
+        print('Congratulations,', player_name)
+    else:
+        print("Let's try again,", player_name)
