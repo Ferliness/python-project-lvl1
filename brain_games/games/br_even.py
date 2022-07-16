@@ -1,23 +1,23 @@
 """Module for the game brain-even."""
 
-from brain_games import games_logic as gm
+from brain_games import games_logic as gml
 from brain_games import generators as gen
 
 
 def main_even() -> None:
     """Start the game brain-even."""
-    gm.print_start_phrase()
-    player_name = gm.meet_and_greet_player()
+    gml.print_start_phrase()
+    player_name = gml.meet_and_greet_player()
     print('Answer "yes" if the number is even, otherwise answer "no".')
     answer_dict = {True: 'yes', False: 'no'}
 
-    for num in gen.gen_nums_list():
+    for num in gen.gen_gm_list(gen.gen_number):
         print('Question:', num)
         correct_answer = answer_dict[_is_even(num)]
 
-        is_player_wins = gm.compare_answers(
+        is_player_wins = gml.compare_answers(
             correct_answer,
-            gm.get_player_answer(),
+            gml.get_player_answer(),
         )
 
         if is_player_wins:
@@ -25,14 +25,14 @@ def main_even() -> None:
 
         break
 
-    gm.print_end_phrase(is_player_wins, player_name)
+    gml.print_end_phrase(is_player_wins, player_name)
 
 
 def _is_even(number: int) -> bool:
     """Сhecks if a number is even, return True/False.
 
     Args:
-        number (int): The number to check
+        number (int): the number to check
 
     Returns:
         bool: the result of checking

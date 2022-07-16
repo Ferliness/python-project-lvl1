@@ -1,8 +1,21 @@
 """Module contains all generator functions used in games."""
 
 from random import randrange
+from typing import Any, Callable
 
 MIN_NUM, MAX_NUM, GAMES_COUNT = 0, 100, 3
+
+
+def gen_gm_list(gen_smth: Callable[..., Any]) -> list:
+    """Give a game list of length GAMES_COUNT.
+
+    Args:
+        gen_smth (Callable[..., Any]): the generator function
+
+    Returns:
+        list: the list of random value
+    """
+    return [gen_smth() for _ in range(GAMES_COUNT)]
 
 
 def gen_number() -> int:
@@ -14,22 +27,13 @@ def gen_number() -> int:
     return randrange(MIN_NUM, MAX_NUM)
 
 
-def gen_nums_list() -> list:
-    """Give a list of numbers of length the GAMES_COUNT.
+def gen_num_tuple() -> tuple:
+    """Generate a tuple of random numbers.
 
     Returns:
-        list: the list of random numbers
+        tuple: the tuple with numbers
     """
-    return [gen_number() for _ in range(GAMES_COUNT)]
-
-
-def gen_tuples_list() -> list:
-    """Generate a list of random numbers in tuples.
-
-    Returns:
-        list: the list of tuples
-    """
-    return list(zip(gen_nums_list(), gen_nums_list()))
+    return (gen_number(), gen_number())
 
 
 def gen_math_operator() -> str:

@@ -1,22 +1,22 @@
 """Module for the game brain-calc."""
 
-from brain_games import games_logic as gm
+from brain_games import games_logic as gml
 from brain_games import generators as gen
 
 
 def main_calc() -> None:
     """Start the game brain-calc."""
-    gm.print_start_phrase()
-    player_name = gm.meet_and_greet_player()
+    gml.print_start_phrase()
+    player_name = gml.meet_and_greet_player()
     print('What is the result of the expression?')
 
-    for (fst_num, snd_num) in gen.gen_tuples_list():
+    for (fst_num, snd_num) in gen.gen_gm_list(gen.gen_num_tuple):
         math_opr = gen.gen_math_operator()
         print('Question: ', fst_num, math_opr, snd_num, sep='')
 
-        is_player_wins = gm.compare_answers(
+        is_player_wins = gml.compare_answers(
             str(_calc_expression(fst_num, snd_num, math_opr)),
-            gm.get_player_answer(),
+            gml.get_player_answer(),
         )
 
         if is_player_wins:
@@ -24,7 +24,7 @@ def main_calc() -> None:
 
         break
 
-    gm.print_end_phrase(is_player_wins, player_name)
+    gml.print_end_phrase(is_player_wins, player_name)
 
 
 def _calc_expression(

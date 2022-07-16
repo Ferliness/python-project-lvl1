@@ -2,22 +2,22 @@
 
 from math import gcd
 
-from brain_games import games_logic as gm
+from brain_games import games_logic as gml
 from brain_games import generators as gen
 
 
 def main_gcd() -> None:
     """Start the game brain-gcd."""
-    gm.print_start_phrase()
-    player_name = gm.meet_and_greet_player()
+    gml.print_start_phrase()
+    player_name = gml.meet_and_greet_player()
     print('Find the greatest common divisor of given numbers.')
 
-    for (fst_num, snd_num) in gen.gen_tuples_list():
+    for (fst_num, snd_num) in gen.gen_gm_list(gen.gen_num_tuple):
         print('Question: ', fst_num, snd_num)
 
-        is_player_wins = gm.compare_answers(
+        is_player_wins = gml.compare_answers(
             str(gcd(fst_num, snd_num)),
-            gm.get_player_answer(),
+            gml.get_player_answer(),
         )
 
         if is_player_wins:
@@ -25,7 +25,7 @@ def main_gcd() -> None:
 
         break
 
-    gm.print_end_phrase(is_player_wins, player_name)
+    gml.print_end_phrase(is_player_wins, player_name)
 
 
 if __name__ == '__main__':
