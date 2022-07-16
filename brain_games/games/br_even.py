@@ -4,7 +4,7 @@ from brain_games import games_logic as gm
 from brain_games import generators as gen
 
 
-def main_even():
+def main_even() -> None:
     """Start the game brain-even."""
     gm.print_start_phrase()
     player_name = gm.meet_and_greet_player()
@@ -28,14 +28,14 @@ def main_even():
     gm.print_end_phrase(is_player_wins, player_name)
 
 
-def _is_even(number):
+def _is_even(number: int) -> bool:
     """Сhecks if a number is even, return True/False.
 
     Args:
         number (int): The number to check
 
     Returns:
-        return: bool
+        bool: the result of checking
     """
     return number % 2 == 0
 

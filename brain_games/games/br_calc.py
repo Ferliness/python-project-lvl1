@@ -4,7 +4,7 @@ from brain_games import games_logic as gm
 from brain_games import generators as gen
 
 
-def main_calc():
+def main_calc() -> None:
     """Start the game brain-calc."""
     gm.print_start_phrase()
     player_name = gm.meet_and_greet_player()
@@ -27,13 +27,17 @@ def main_calc():
     gm.print_end_phrase(is_player_wins, player_name)
 
 
-def _calc_expression(fst_number, snd_number, math_operator):
+def _calc_expression(
+    fst_number: int,
+    snd_number: int,
+    math_operator: str,
+) -> int:
     """Calculate an expression and return the result, only '+', '-', '*'.
 
     Args:
         fst_number (int): first coefficent
         snd_number (int): second coefficent
-        math_operator (string): type of operation
+        math_operator (str): type of operation
 
     Returns:
         int: expression result

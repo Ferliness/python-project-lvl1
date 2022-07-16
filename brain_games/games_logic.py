@@ -3,39 +3,39 @@
 import prompt
 
 
-def print_start_phrase():
+def print_start_phrase() -> None:
     """Greet the player with a common phrase."""
     print('Welcome to the Brain Games!')
 
 
-def meet_and_greet_player():
+def meet_and_greet_player() -> str:
     """Ask and get the player's name and print the greeting.
 
     Returns:
-        string: the player's name
+        str: the player's name
     """
     player_name = prompt.string(prompt='May I have your name? ')
     print('Hello,', player_name)
     return player_name
 
 
-def get_player_answer():
+def get_player_answer() -> str:
     """Asks the player for an answer and returns it.
 
     Returns:
-        string: thr player's answer
+        str: thr player's answer
     """
     return prompt.string(prompt='Your answer: ')
 
 
-def compare_answers(correct_answer, player_answer):
+def compare_answers(correct_answer: str, player_answer: str) -> bool:
     """Compare the player's answer with the correct one.
 
     Print the comparison result and then return it.
 
     Args:
-        correct_answer (string): the correct answer to the question
-        player_answer (string): the player answer to the question
+        correct_answer (str): the correct answer to the question
+        player_answer (str): the player answer to the question
 
     Returns:
         bool: if the player right return True, else False
@@ -55,12 +55,12 @@ def compare_answers(correct_answer, player_answer):
     return False
 
 
-def print_end_phrase(is_player_wins, player_name):
+def print_end_phrase(is_player_wins: bool, player_name: str) -> None:
     """Print the appropriate finish phrase.
 
     Args:
         is_player_wins (bool): is the player a winner or a loser
-        player_name (string): the player's name
+        player_name (str): the player's name
     """
     if is_player_wins:
         print('Congratulations,', player_name)

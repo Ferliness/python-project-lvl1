@@ -5,7 +5,7 @@ from random import randrange
 MIN_NUM, MAX_NUM, GAMES_COUNT = 0, 100, 3
 
 
-def gen_number():
+def gen_number() -> int:
     """Give a number in the range from the MIN_NUM to the MAX_NUM.
 
     Returns:
@@ -14,7 +14,7 @@ def gen_number():
     return randrange(MIN_NUM, MAX_NUM)
 
 
-def gen_nums_list():
+def gen_nums_list() -> list:
     """Give a list of numbers of length the GAMES_COUNT.
 
     Returns:
@@ -23,7 +23,7 @@ def gen_nums_list():
     return [gen_number() for _ in range(GAMES_COUNT)]
 
 
-def gen_tuples_list():
+def gen_tuples_list() -> list:
     """Generate a list of random numbers in tuples.
 
     Returns:
@@ -32,11 +32,11 @@ def gen_tuples_list():
     return list(zip(gen_nums_list(), gen_nums_list()))
 
 
-def gen_math_operator():
+def gen_math_operator() -> str:
     """Give a math operator from the tuple of operators.
 
     Returns:
-        string: the math operator
+        str: the math operator
     """
     tuple_operators = ('+', '-', '*')
     return tuple_operators[randrange(len(tuple_operators))]
