@@ -1,37 +1,47 @@
 """Module contains all generator functions used in games."""
 
-from random import randrange
-from typing import Any, Callable
+from random import randint, randrange
+from typing import Any, Callable, List
 
 MIN_NUM, MAX_NUM, GAMES_COUNT = 0, 100, 3
+REC_LEN_LIST, PART_OF_MAX = 10, 0.5
 
 
-def gen_gm_list(gen_smth: Callable[..., Any]) -> list:
+def gen_gm_list(gen_smth: Callable[..., Any]) -> List[Any]:
     """Give a game list of length GAMES_COUNT.
 
     Args:
-        gen_smth (Callable[..., Any]): the generator function
+        gen_smth (Callable[..., Any]): a generator function
 
     Returns:
-        list: the list of random value
+        list: list of random values
     """
     return [gen_smth() for _ in range(GAMES_COUNT)]
 
 
-def gen_number() -> int:
-    """Give a number in the range from the MIN_NUM to the MAX_NUM.
+def gen_number(min_num: int = MIN_NUM, max_num: int = MAX_NUM) -> int:
+    """Give a number in the range from the min_num to the max_num.
+
+    Default MIN_NUM and MAX_NUM,
+    the min_num and max_num must be greater than zero
+    and the min_num must be less than the max_num.
+    The minimum and maximum are included in the bounds.
+
+    Args:
+        min_num (int): the minimum allowed number
+        max_num (int): the maximum allowed number
 
     Returns:
         int: the random number
     """
-    return randrange(MIN_NUM, MAX_NUM)
+    return randint(min_num, max_num)
 
 
 def gen_num_tuple() -> tuple:
     """Generate a tuple of random numbers.
 
     Returns:
-        tuple: the tuple with numbers
+        tuple: tuple with numbers
     """
     return (gen_number(), gen_number())
 
@@ -44,3 +54,17 @@ def gen_math_operator() -> str:
     """
     tuple_operators = ('+', '-', '*')
     return tuple_operators[randrange(len(tuple_operators))]
+
+
+def gen_prog() -> List[int]:
+    """Generate a progression of random numbers of lenght REC_LEN_LIST.
+
+    MAX_NUM must be greater than: MAX_NUM * PART_OF_MAX + REC_LEN_LIST.
+
+    Returns:
+        List[int]: the random progression
+    """
+    fst_num = gen_number(MIN_NUM, int(MAX_NUM * PART_OF_MAX))
+    last_num = gen_number(fst_num + REC_LEN_LIST, MAX_NUM)
+    step = int((last_num - fst_num) / REC_LEN_LIST)
+    return list(range(fst_num, last_num, step))[:REC_LEN_LIST]

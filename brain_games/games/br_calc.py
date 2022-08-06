@@ -4,7 +4,7 @@ from brain_games import games_logic as gml
 from brain_games import generators as gen
 
 
-def main_calc() -> None:
+def main() -> None:
     """Start the game brain-calc."""
     gml.print_start_phrase()
     player_name = gml.meet_and_greet_player()
@@ -51,4 +51,4 @@ def _calc_expression(
 
 
 if __name__ == '__main__':
-    main_calc()
+    main()

@@ -6,7 +6,7 @@ from brain_games import games_logic as gml
 from brain_games import generators as gen
 
 
-def main_gcd() -> None:
+def main() -> None:
     """Start the game brain-gcd."""
     gml.print_start_phrase()
     player_name = gml.meet_and_greet_player()
@@ -29,4 +29,4 @@ def main_gcd() -> None:
 
 
 if __name__ == '__main__':
-    main_gcd()
+    main()
