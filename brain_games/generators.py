@@ -24,8 +24,8 @@ def gen_number(min_num: int = MIN_NUM, max_num: int = MAX_NUM) -> int:
 
     Default MIN_NUM and MAX_NUM,
     the min_num and max_num must be greater than zero
-    and the min_num must be less than the max_num.
-    The minimum and maximum are included in the bounds.
+    and min_num must be less than the max_num.
+    Minimum and maximum are included in the bounds.
 
     Args:
         min_num (int): the minimum allowed number
