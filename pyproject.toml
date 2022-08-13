@@ -2,7 +2,7 @@
 packages = [{ include = "brain_games" },]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "А few small games of the Mind Games project"
 authors = ["Ferliness <reason.life@yandex.ru>"]
 
 [tool.poetry.dependencies]
