@@ -49,7 +49,7 @@ def compare_answers(correct_answer: str, player_answer: str) -> bool:
         player_answer,
         "' is wrong answer ;(. Correct answer was '",
         correct_answer,
-        "'",
+        "'.",
         sep='',
     )
     return False
@@ -63,6 +63,6 @@ def print_end_phrase(is_player_wins: bool, player_name: str) -> None:
         player_name (str): the player's name
     """
     if is_player_wins:
-        print('Congratulations,', player_name)
+        print('Congratulations, ', player_name, '!', sep='')
     else:
-        print("Let's try again,", player_name)
+        print("Let's try again, ", player_name, '!', sep='')
