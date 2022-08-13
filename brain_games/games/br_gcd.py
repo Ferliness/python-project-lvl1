@@ -15,17 +15,17 @@ def main() -> None:
     for (fst_num, snd_num) in gen.gen_gm_list(gen.gen_num_tuple):
         print('Question:', fst_num, snd_num)
 
-        is_player_wins = gm_logic.compare_answers(
+        is_player_won = gm_logic.compare_answers(
             str(gcd(fst_num, snd_num)),
             gm_logic.get_player_answer(),
         )
 
-        if is_player_wins:
+        if is_player_won:
             continue
 
         break
 
-    gm_logic.print_end_phrase(is_player_wins, player_name)
+    gm_logic.print_end_phrase(is_player_won, player_name)
 
 
 if __name__ == '__main__':

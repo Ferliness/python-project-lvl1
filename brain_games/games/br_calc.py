@@ -15,17 +15,17 @@ def main() -> None:
         math_opr = gen.gen_math_operator()
         print('Question:', fst_num, math_opr, snd_num)
 
-        is_player_wins = gm_logic.compare_answers(
+        is_player_won = gm_logic.compare_answers(
             str(gm_math.calc_expression(fst_num, snd_num, math_opr)),
             gm_logic.get_player_answer(),
         )
 
-        if is_player_wins:
+        if is_player_won:
             continue
 
         break
 
-    gm_logic.print_end_phrase(is_player_wins, player_name)
+    gm_logic.print_end_phrase(is_player_won, player_name)
 
 
 if __name__ == '__main__':

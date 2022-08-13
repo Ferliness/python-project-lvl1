@@ -55,14 +55,14 @@ def compare_answers(correct_answer: str, player_answer: str) -> bool:
     return False
 
 
-def print_end_phrase(is_player_wins: bool, player_name: str) -> None:
+def print_end_phrase(is_player_won: bool, player_name: str) -> None:
     """Print the appropriate finish phrase.
 
     Args:
-        is_player_wins (bool): is the player a winner or a loser
+        is_player_won (bool): is the player a winner or a loser
         player_name (str): the player's name
     """
-    if is_player_wins:
+    if is_player_won:
         print('Congratulations, ', player_name, '!', sep='')
     else:
         print("Let's try again, ", player_name, '!', sep='')

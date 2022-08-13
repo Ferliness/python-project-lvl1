@@ -16,17 +16,17 @@ def main() -> None:
         index_hidden_elem = gen.gen_number(gen.MIN_NUM, gen.REC_LEN_LIST)
         print('Question:', ' '.join(make_hidden_prog(prog, index_hidden_elem)))
 
-        is_player_wins = gm_logic.compare_answers(
+        is_player_won = gm_logic.compare_answers(
             str(prog[index_hidden_elem]),
             gm_logic.get_player_answer(),
         )
 
-        if is_player_wins:
+        if is_player_won:
             continue
 
         break
 
-    gm_logic.print_end_phrase(is_player_wins, player_name)
+    gm_logic.print_end_phrase(is_player_won, player_name)
 
 
 def make_hidden_prog(prog: List[int], index_hidden_elem: int) -> List[str]:

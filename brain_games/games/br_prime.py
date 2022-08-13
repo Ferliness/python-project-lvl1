@@ -16,17 +16,17 @@ def main() -> None:
         print('Question:', num)
         correct_answer = answer_dict[gm_math.is_prime(num)]
 
-        is_player_wins = gm_logic.compare_answers(
+        is_player_won = gm_logic.compare_answers(
             correct_answer,
             gm_logic.get_player_answer(),
         )
 
-        if is_player_wins:
+        if is_player_won:
             continue
 
         break
 
-    gm_logic.print_end_phrase(is_player_wins, player_name)
+    gm_logic.print_end_phrase(is_player_won, player_name)
 
 
 if __name__ == '__main__':
