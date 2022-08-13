@@ -13,7 +13,7 @@ def main() -> None:
 
     for (fst_num, snd_num) in gen.gen_gm_list(gen.gen_num_tuple):
         math_opr = gen.gen_math_operator()
-        print('Question: ', fst_num, math_opr, snd_num, sep='')
+        print('Question:', fst_num, math_opr, snd_num)
 
         is_player_wins = gm_logic.compare_answers(
             str(gm_math.calc_expression(fst_num, snd_num, math_opr)),

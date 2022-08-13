@@ -14,7 +14,7 @@ def main() -> None:
 
     for prog in gen.gen_gm_list(gen.gen_prog):
         index_hidden_elem = gen.gen_number(gen.MIN_NUM, gen.REC_LEN_LIST)
-        print('Question: ', make_hidden_prog(prog, index_hidden_elem))
+        print('Question:', ' '.join(make_hidden_prog(prog, index_hidden_elem)))
 
         is_player_wins = gm_logic.compare_answers(
             str(prog[index_hidden_elem]),

@@ -13,7 +13,7 @@ def main() -> None:
     answer_dict = {True: 'yes', False: 'no'}
 
     for num in gen.gen_gm_list(gen.gen_number):
-        print('Question: ', num)
+        print('Question:', num)
         correct_answer = answer_dict[gm_math.is_prime(num)]
 
         is_player_wins = gm_logic.compare_answers(

@@ -13,7 +13,7 @@ def main() -> None:
     print('Find the greatest common divisor of given numbers.')
 
     for (fst_num, snd_num) in gen.gen_gm_list(gen.gen_num_tuple):
-        print('Question: ', fst_num, snd_num)
+        print('Question:', fst_num, snd_num)
 
         is_player_wins = gm_logic.compare_answers(
             str(gcd(fst_num, snd_num)),
