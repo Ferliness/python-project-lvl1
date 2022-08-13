@@ -12,8 +12,9 @@ def main() -> None:
     player_name = gm_logic.meet_and_greet_player()
     print('What number is missing in the progression?')
 
+    max_index = gen.REC_LEN_LIST - 1
     for prog in gen.gen_gm_list(gen.gen_prog):
-        index_hidden_elem = gen.gen_number(gen.MIN_NUM, gen.REC_LEN_LIST)
+        index_hidden_elem = gen.gen_number(max_num=max_index)
         print('Question:', ' '.join(make_hidden_prog(prog, index_hidden_elem)))
 
         is_player_won = gm_logic.compare_answers(

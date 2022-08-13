@@ -55,7 +55,7 @@ def is_remainder(divisor: int, number: int) -> bool:
 
 
 def is_prime(number: int) -> bool:
-    """Check if a number is prime.
+    """Check if a number is prime. Only for numbers greater than zero.
 
     Args:
         number (int): the number to check
@@ -64,7 +64,7 @@ def is_prime(number: int) -> bool:
         bool: the result of checking
     """
     min_even_prime = 2
-    if is_even(number):
+    if is_even(number) or min_even_prime > number:
         return number == min_even_prime
 
     odd_divisor = 3

@@ -64,7 +64,11 @@ def gen_prog() -> List[int]:
     Returns:
         List[int]: the random progression
     """
-    fst_num = gen_number(MIN_NUM, int(MAX_NUM * PART_OF_MAX))
-    last_num = gen_number(fst_num + REC_LEN_LIST, MAX_NUM)
+    max_fst_num = int(MAX_NUM * PART_OF_MAX)
+    fst_num = gen_number(max_num=max_fst_num)
+
+    min_last_num = fst_num + REC_LEN_LIST
+    last_num = gen_number(min_num=min_last_num)
+
     step = int((last_num - fst_num) / REC_LEN_LIST)
     return list(range(fst_num, last_num, step))[:REC_LEN_LIST]
