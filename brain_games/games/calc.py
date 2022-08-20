@@ -26,7 +26,3 @@ def main() -> None:
         break
 
     gm_logic.print_end_phrase(is_player_won, player_name)
-
-
-if __name__ == '__main__':
-    main()

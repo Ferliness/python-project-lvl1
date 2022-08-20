@@ -47,7 +47,3 @@ def make_hidden_prog(prog: List[int], index_hidden_elem: int) -> List[str]:
         '..' if count == index_hidden_elem else str(num)
         for count, num in enumerate(prog)
     ]
-
-
-if __name__ == '__main__':
-    main()

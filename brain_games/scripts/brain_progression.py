@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 """Run Brain Games."""
 
-from brain_games.games import br_prog
+from brain_games.games import prog
 
 
 def main():
     """Start the game."""
-    br_prog.main()
+    prog.main()
 
 
 if __name__ == '__main__':
