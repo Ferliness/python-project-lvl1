@@ -18,13 +18,19 @@ Clone the repository and use Makefile:
 ```sh
 make package-install
 ```
+[![asciicast](https://asciinema.org/a/dPFg1gy8ginyPq1pjSfIXZuNy.svg)](https://asciinema.org/a/dPFg1gy8ginyPq1pjSfIXZuNy)
 
-[![asciicast](https://asciinema.org/a/502729.svg)](https://asciinema.org/a/502729)
+## brain-even:
+[![asciicast](https://asciinema.org/a/524379.svg)](https://asciinema.org/a/524379)
 
-[![asciicast](https://asciinema.org/a/3sTm7qxUGKJEueDdZS4NDUkz7.svg)](https://asciinema.org/a/3sTm7qxUGKJEueDdZS4NDUkz7)
+## brain-calc:
+[![asciicast](https://asciinema.org/a/524382.svg)](https://asciinema.org/a/524382)
 
-[![asciicast](https://asciinema.org/a/tgUFgaN5sM3923Yn0yGnSYir0.svg)](https://asciinema.org/a/tgUFgaN5sM3923Yn0yGnSYir0)
+## brain-gcd:
+[![asciicast](https://asciinema.org/a/524385.svg)](https://asciinema.org/a/524385)
 
-[![asciicast](https://asciinema.org/a/P59ZMBOdghk1qtCcKygC71w7G.svg)](https://asciinema.org/a/P59ZMBOdghk1qtCcKygC71w7G)
+## brain-progression:
+[![asciicast](https://asciinema.org/a/524386.svg)](https://asciinema.org/a/524386)
 
-[![asciicast](https://asciinema.org/a/uHQQluNE3ULzaWj0BStepYiv9.svg)](https://asciinema.org/a/uHQQluNE3ULzaWj0BStepYiv9)
+## brain-prime:
+[![asciicast](https://asciinema.org/a/524387.svg)](https://asciinema.org/a/524387)

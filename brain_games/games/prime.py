@@ -1,29 +1,67 @@
-"""Module for the game brain-prime."""
+"""The module for the game brain-prime."""
 
-from brain_games import games_logic as gm_logic
-from brain_games import games_math as gm_math
-from brain_games import generators as gen
+from math import sqrt
+from random import randint
+
+DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+MIN_NUM, MAX_NUM = 0, 100
 
 
-def main() -> None:
-    """Start the game."""
-    gm_logic.print_start_phrase()
-    player_name = gm_logic.meet_and_greet_player()
-    print('Answer "yes" if given number is prime. Otherwise answer "no".')
+def get_question_and_answer() -> tuple[str, str]:
+    """Generate and give a game question and answer to it.
+
+    Returns:
+        tuple[str, str]: (question, answer)
+    """
     answer_dict = {True: 'yes', False: 'no'}
+    number = randint(MIN_NUM, MAX_NUM)
 
-    for num in gen.gen_gm_list(gen.gen_number):
-        print('Question:', num)
-        correct_answer = answer_dict[gm_math.is_prime(num)]
+    question = f'Question: {number}'
+    answer = answer_dict[is_prime(number)]
 
-        is_player_won = gm_logic.compare_answers(
-            correct_answer,
-            gm_logic.get_player_answer(),
-        )
+    return question, answer
 
-        if is_player_won:
-            continue
 
-        break
+def is_even(number: int) -> bool:
+    """Сheck if a number is even.
 
-    gm_logic.print_end_phrase(is_player_won, player_name)
+    Args:
+        number (int): the number to check
+
+    Returns:
+        bool: the result of checking
+    """
+    return number % 2 == 0
+
+
+def is_remainder(divisor: int, number: int) -> bool:
+    """Check if there is a remainder after dividing the number by the divisor.
+
+    Args:
+        divisor (int): divisor of the passed number
+        number (int): number to be divided
+
+    Returns:
+        bool: the result of checking
+    """
+    no_remainder = 0
+    return number % divisor != no_remainder
+
+
+def is_prime(number: int) -> bool:
+    """Check if a number is prime. Only for numbers greater than zero.
+
+    Args:
+        number (int): the number to check
+
+    Returns:
+        bool: the result of checking
+    """
+    min_even_prime = 2
+    if is_even(number) or min_even_prime > number:
+        return number == min_even_prime
+
+    odd_divisor = 3
+    while odd_divisor <= sqrt(number) and is_remainder(odd_divisor, number):
+        odd_divisor += min_even_prime
+    return odd_divisor > sqrt(number)

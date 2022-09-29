@@ -1,6 +1,37 @@
-"""Module contains functions with the main logic of games."""
+"""The module contains the main engine for brain games."""
+
+from typing import Callable
 
 import prompt
+
+GAMES_COUNT = 3
+
+
+def run_game(game: Callable[..., tuple[str, str]]) -> None:
+    """Start the game.
+
+    Args:
+        game (Callable[..., tuple[str, str]): one of the brain games
+    """
+    print_start_phrase()
+    player_name = meet_and_greet_player()
+    print(game.DESCRIPTION)
+
+    for _ in range(GAMES_COUNT):
+        question, answer = game.get_question_and_answer()
+        print(question)
+
+        is_player_won = compare_answers(
+            answer,
+            get_player_answer(),
+        )
+
+        if is_player_won:
+            continue
+
+        break
+
+    print_end_phrase(is_player_won, player_name)
 
 
 def print_start_phrase() -> None:
@@ -15,7 +46,7 @@ def meet_and_greet_player() -> str:
         str: the player's name
     """
     player_name = prompt.string(prompt='May I have your name? ')
-    print('Hello,', player_name)
+    print(f'Hello, {player_name}!')
     return player_name
 
 
@@ -45,13 +76,10 @@ def compare_answers(correct_answer: str, player_answer: str) -> bool:
         return True
 
     print(
-        "'",
-        player_answer,
-        "' is wrong answer ;(. Correct answer was '",
-        correct_answer,
-        "'.",
-        sep='',
+        f"'{player_answer}' is wrong answer ;(.",
+        f"Correct answer was '{correct_answer}'.",
     )
+
     return False
 
 

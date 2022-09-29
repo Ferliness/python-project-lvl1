@@ -1,29 +1,33 @@
-"""Module for the game brain-even."""
+"""The module for the game brain-even."""
 
-from brain_games import games_logic as gm_logic
-from brain_games import games_math as gm_math
-from brain_games import generators as gen
+from random import randint
+
+DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
+MIN_NUM, MAX_NUM = 0, 100
 
 
-def main() -> None:
-    """Start the game."""
-    gm_logic.print_start_phrase()
-    player_name = gm_logic.meet_and_greet_player()
-    print('Answer "yes" if the number is even, otherwise answer "no".')
+def get_question_and_answer() -> tuple[str, str]:
+    """Generate and give a game question and answer to it.
+
+    Returns:
+        tuple[str, str]: (question, answer)
+    """
     answer_dict = {True: 'yes', False: 'no'}
+    number = randint(MIN_NUM, MAX_NUM)
 
-    for num in gen.gen_gm_list(gen.gen_number):
-        print('Question:', num)
-        correct_answer = answer_dict[gm_math.is_even(num)]
+    question = f'Question: {number}'
+    answer = answer_dict[is_even(number)]
 
-        is_player_won = gm_logic.compare_answers(
-            correct_answer,
-            gm_logic.get_player_answer(),
-        )
+    return question, answer
 
-        if is_player_won:
-            continue
 
-        break
+def is_even(number: int) -> bool:
+    """Сheck if a number is even.
 
-    gm_logic.print_end_phrase(is_player_won, player_name)
+    Args:
+        number (int): the number to check
+
+    Returns:
+        bool: the result of checking
+    """
+    return number % 2 == 0

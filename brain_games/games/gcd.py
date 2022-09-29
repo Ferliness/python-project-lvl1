@@ -1,28 +1,21 @@
-"""Module for the game brain-gcd."""
+"""The module for the game brain-gcd."""
 
 from math import gcd
+from random import randint
 
-from brain_games import games_logic as gm_logic
-from brain_games import generators as gen
+DESCRIPTION = 'Find the greatest common divisor of given numbers.'
+MIN_NUM, MAX_NUM = 0, 100
 
 
-def main() -> None:
-    """Start the game."""
-    gm_logic.print_start_phrase()
-    player_name = gm_logic.meet_and_greet_player()
-    print('Find the greatest common divisor of given numbers.')
+def get_question_and_answer() -> tuple[str, str]:
+    """Generate and give a game question and answer to it.
 
-    for (fst_num, snd_num) in gen.gen_gm_list(gen.gen_num_tuple):
-        print('Question:', fst_num, snd_num)
+    Returns:
+        tuple[str, str]: (question, answer)
+    """
+    fst_num, snd_num = randint(MIN_NUM, MAX_NUM), randint(MIN_NUM, MAX_NUM)
 
-        is_player_won = gm_logic.compare_answers(
-            str(gcd(fst_num, snd_num)),
-            gm_logic.get_player_answer(),
-        )
+    question = f'Question: {fst_num} {snd_num}'
+    answer = str(gcd(fst_num, snd_num))
 
-        if is_player_won:
-            continue
-
-        break
-
-    gm_logic.print_end_phrase(is_player_won, player_name)
+    return question, answer
